@@ -87,3 +87,12 @@ the phase that happens after the "creation" phase where code is executed line by
 
 - variable enironment: where the variables live and how they relate to each other in memory
 - notice how in the example, different values are printed for `myVar`
+
+### b10-scope-chain
+
+- every execution context has a reference to its outer environment. however, the outer environment isn't necessarily 1 level down on the execution stack.
+
+- when you ask for a variable when running a line of code inside any particular execution context and the javascript engine can't find that variable, it automatically searches for that variable at the execution context of the outer reference -- where the outer reference points depends on where the function sits lexically
+
+- in the example, `function b` and `function a` are both lexically sitting on top of the global environment
+- "scope chain" is the process at which the engine goes through the execution stack to look for a called variable
