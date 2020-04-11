@@ -1,4 +1,8 @@
-### EXECUTION CONTEXTS AND LEXICAL ENVIRONMENTS
+---
+A guide to understanding how JavaScript works under the hood.
+---
+
+# Execution Contexts and Lexical Environments
 
 syntax parser:
 a program that reads your code and determines what it does and if its grammar is valid.
@@ -78,3 +82,8 @@ the phase that happens after the "creation" phase where code is executed line by
 
 - each execution context goes through the "creation" and "execution" phase
 - this concept is very important to have in your mental model with thinking about function invocation
+
+### b9-variable-environments
+
+- variable enironment: where the variables live and how they relate to each other in memory
+- notice how in the example, different values are printed for `myVar`
