@@ -69,3 +69,12 @@ the phase that happens after the "creation" phase where code is executed line by
 - synchronous: one at a time and _in order_
 
 "javascript is actually single threaded and synchronous in it's behavior!"
+
+### function invocation and execution stack
+
+- _invocation_: running a function... in javascript, by using parenthesis()
+
+- everytime a function is invoked, it creates a new "execution context" and puts in on top of the "execution stack"
+
+- each execution context goes through the "creation" and "execution" phase
+- this concept is very important to have in your mental model with thinking about function invocation
