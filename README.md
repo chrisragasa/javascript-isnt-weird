@@ -1,4 +1,4 @@
-### EXECUTION CONTEXTS AND LEXICAL ENVIRONEMNTS
+### EXECUTION CONTEXTS AND LEXICAL ENVIRONMENTS
 
 syntax parser:
 a program that reads your code and determines what it does and if its grammar is valid.
@@ -27,3 +27,19 @@ the global environment and the global object
 - at the global level: global object (window) = 'this'
 - GLOBAL = "not inside a function"
 - when you create variables (assuming that variable is not written inside a function) and functions, these variables and functions are attached to the global object
+
+### b4-hoisting
+
+people explain hoisting as a phenomenon where functions and variables are "hoisted" to the top of the file.
+
+however, what's actually happening is the "creation phase" of the execution context... during this phase, the following things are created:
+
+- global object
+- 'this'
+- outer environment
+- memory space for variables and functions, aka "hoisting"
+
+Functions are placed into this memory space in it's whole entirety.
+However, with variables, hoisting is a little different.
+The engine sets all values for variables as 'undefined'.
+It's not a good idea to rely on hoisting.
