@@ -102,10 +102,20 @@ the phase that happens after the "creation" phase where code is executed line by
 
 `let`: allows the javascript engine to use block scoping
 
-```
+```js
 if (a > b) {
   let c = true;
 }
 ```
 
 - with `let` you can't use a variable unless it is actually declared
+
+### asynchronous callbacks
+
+- _asynchronous_: more than one at a time
+- there are asynchronous events in javascript (click events, http requests, etc.)
+- the javascript engine doesn't exist by itself: it has hooks where it can talk to other engines that live inside the browser (rendering engine, HTTP Request, etc.)
+- the Javascript engine contains: the "Global Execution Context" and the "Event Queue" (click event or an HTTP Request)
+- the Javascript engine looks at the "Event Queue" only when the execution stack is empty -- for example, there might be a `clickHandler()` for a click event, but this won't get called until everything on the execution stack is completed: `Global Execution Context`, `a()`, `b()`, etc.
+- so in essence, JavaScript still runs "synchronously", but the browser "asychronously" puts events into the event queue for JavaScript to handle when its execution stack is empty.
+- another way to think of this phenomenon, is that javascript code runs normally, but whenever an event happens while the javascript code is running, the js engine puts that event in the "Event Queue". when the execution stack is empty, the event queue is then handled. this is why if you run the code in `b11-asynchronous-callbacks`, logging of the click event happens at the very end if you click the browser during the 3 sec runtime of the `waitThreeSeconds()` function
