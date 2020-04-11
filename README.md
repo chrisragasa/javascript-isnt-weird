@@ -62,3 +62,10 @@ this will be hard to debug!
 ### b6-execution
 
 the phase that happens after the "creation" phase where code is executed line by line.
+
+### single threaded, synchronous execution
+
+- single threaded: one command executed at a time
+- synchronous: one at a time and _in order_
+
+"javascript is actually single threaded and synchronous in it's behavior!"
