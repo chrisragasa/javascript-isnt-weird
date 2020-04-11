@@ -58,3 +58,7 @@ if `a` is declared, but not set
 
 never set a variable equal to `undefined`!!! for example, `a = undefined`.
 this will be hard to debug!
+
+### b6-execution
+
+the phase that happens after the "creation" phase where code is executed line by line.
