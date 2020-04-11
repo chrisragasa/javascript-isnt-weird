@@ -43,3 +43,18 @@ Functions are placed into this memory space in it's whole entirety.
 However, with variables, hoisting is a little different.
 The engine sets all values for variables as 'undefined'.
 It's not a good idea to rely on hoisting.
+
+### b5-undefined
+
+`undefined` is a special value in javascript
+
+if `a` is never declared in the file
+
+- Uncaught reference error = `a` was never stored in memory
+
+if `a` is declared, but not set
+
+- `a` will be set to undefined
+
+never set a variable equal to `undefined`!!! for example, `a = undefined`.
+this will be hard to debug!
