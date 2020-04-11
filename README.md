@@ -95,3 +95,17 @@ the phase that happens after the "creation" phase where code is executed line by
 - when you ask for a variable when running a line of code inside any particular execution context and the javascript engine can't find that variable, it automatically searches for that variable at the execution context of the outer reference -- where the outer reference points depends on where the function sits lexically
 
 - "scope chain" is the process at which the engine goes through the execution stack to look for a called variable
+
+### scope, es6, and `let`
+
+- _scope_: where a variable is available in your code (and if it's truly the same variable, or a new copy)
+
+`let`: allows the javascript engine to use block scoping
+
+```
+if (a > b) {
+  let c = true;
+}
+```
+
+- with `let` you can't use a variable unless it is actually declared
