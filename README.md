@@ -133,3 +133,14 @@ var isNew = true; // no errors
 isNew = 'yup!'; // no errors
 isNew = 1; // no errors
 ```
+
+### Primitive Types
+
+**primitive type**: a type of data that represents a single value; that is, not an object
+- `undefined`: represents lack of existence (you shouldn't set a value to this)
+- `null`: represents lack of existence (you can set a variable to this)
+- `boolean`: `true` or `false`
+- `number`: *floating point* number (there's always some decimals). Unlike other programming languages, there's only one `number` type... and it can make the math weird.
+- `string`: a sequence of characters (both '' and "" can be used) 
+- `symbol`: used in ES6
+
