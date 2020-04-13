@@ -144,3 +144,8 @@ isNew = 1; // no errors
 - `string`: a sequence of characters (both '' and "" can be used) 
 - `symbol`: used in ES6
 
+### Operators
+
+**operator**: a special function that is syntactically (written) differently; generally, operators take two parameters and return one result
+
+"operators are functions"
