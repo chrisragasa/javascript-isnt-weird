@@ -137,11 +137,12 @@ isNew = 1; // no errors
 ### Primitive Types
 
 **primitive type**: a type of data that represents a single value; that is, not an object
+
 - `undefined`: represents lack of existence (you shouldn't set a value to this)
 - `null`: represents lack of existence (you can set a variable to this)
 - `boolean`: `true` or `false`
-- `number`: *floating point* number (there's always some decimals). Unlike other programming languages, there's only one `number` type... and it can make the math weird.
-- `string`: a sequence of characters (both '' and "" can be used) 
+- `number`: _floating point_ number (there's always some decimals). Unlike other programming languages, there's only one `number` type... and it can make the math weird.
+- `string`: a sequence of characters (both '' and "" can be used)
 - `symbol`: used in ES6
 
 ### Operators
@@ -149,3 +150,11 @@ isNew = 1; // no errors
 **operator**: a special function that is syntactically (written) differently; generally, operators take two parameters and return one result
 
 "operators are functions"
+
+### Operator Precendence and Associativity
+
+[Operator precendence - MDN web docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Operator_Precedence)
+
+**operator precendence**: which operator function gets called first... functions are called in order of precendence
+
+**operator associativity**: what order operator functions get called in: left-to-right or right-to-left when functions have the same precedence
