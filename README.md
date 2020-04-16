@@ -235,3 +235,32 @@ name = name || "<Your name here>";
 // name = '<Your name here>'
 // name is set to the value that can be coerced to true
 ```
+
+### Framework Aside: Default Values
+
+Javascript stacks code from all js files and pastes them together.
+
+```html
+<script src="lib1.js"></script>
+<script src="lib2.js"></script>
+<script src="app.js"></script>
+```
+
+```js
+// lib1.js
+var libraryName = "Lib 1";
+
+// lib2.js
+var libraryName = "Lib 2";
+
+// app.js
+console.log(libraryName);
+// "Lib 2"
+```
+
+In the code above, `libraryName` becomes a global variable...
+In order to handle scenarios where code collides with one another, you can use a method like this:
+
+```js
+window.libraryName = window.libraryName || "Lib 2";
+```
