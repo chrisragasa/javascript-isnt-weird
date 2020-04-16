@@ -158,3 +158,17 @@ isNew = 1; // no errors
 **operator precendence**: which operator function gets called first... functions are called in order of precendence
 
 **operator associativity**: what order operator functions get called in: left-to-right or right-to-left when functions have the same precedence
+
+### Coercion
+
+**coercion**: converting a value from one type to another. This happens quite a bit in Javascript because it is dynamically typed.
+
+in the code below, javascript engine coerces the number 1 into a string and concatenates it to the 2
+
+```js
+var a = 1 + "2";
+console.log(a);
+// 12
+```
+
+_This is an extremely important concept for debugging purposes._
