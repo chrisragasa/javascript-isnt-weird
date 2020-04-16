@@ -172,3 +172,52 @@ console.log(a);
 ```
 
 _This is an extremely important concept for debugging purposes._
+
+### Comparison Operators
+
+[Equality comparisons and sameness
+](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Equality_comparisons_and_sameness)
+
+```js
+console.log(3 < 2 < 1);
+// true
+```
+
+coersion
+
+```js
+Number(undefined);
+// NaN
+
+Number(null);
+// 0
+```
+
+Equality
+
+- sometimes hard to debug because of dynamic typing and coercion
+
+```js
+3 == 3; // true
+"3" == 3; // true
+false == 0; // true
+
+// although null coerces to 0, null does not == 0
+null == 0; // false
+
+0 != false; // false
+```
+
+Strict Equality
+
+- easier to debug because it makes sure that the values in comparison are both the same data type
+
+```js
+3 === 3; // true
+"3" === "3"; // true
+"3" === 3; // false
+
+0 !== false; // true
+```
+
+**In general, 99% of the time use `===` when making equality comparisons.**
