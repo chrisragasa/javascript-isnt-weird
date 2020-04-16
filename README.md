@@ -221,3 +221,7 @@ Strict Equality
 ```
 
 **In general, 99% of the time use `===` when making equality comparisons.**
+
+### Existence and Booleans
+
+coersion can be used to check the existence of things
