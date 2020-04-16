@@ -225,3 +225,13 @@ Strict Equality
 ### Existence and Booleans
 
 coersion can be used to check the existence of things
+
+### Default Values
+
+- function parameters are set to `undefined` if they are not declared in the function
+
+```js
+name = name || "<Your name here>";
+// name = '<Your name here>'
+// name is set to the value that can be coerced to true
+```
