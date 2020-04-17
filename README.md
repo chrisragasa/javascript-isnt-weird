@@ -289,3 +289,24 @@ person.address = new Object();
 person.address.street = "111 Main St.";
 person.address.city = "New York";
 ```
+
+### Objects and Object Literals
+
+- this is the preferred method to making objects
+
+```js
+var Tony = {
+  firstname: "Tony",
+  lastname: "Alicea",
+  address: { street: "111 Main St.", city: "New York", state: "NY" },
+};
+
+function greet(person) {
+  console.log("Hi" + person.firstname);
+}
+
+greet(Tony);
+
+// wherever you want, you can create objects on the fly
+greet({ firstname: "Mary", lastname: "Doe" }); // in JS you can make an object as an argument and pass it to a parameter
+```
