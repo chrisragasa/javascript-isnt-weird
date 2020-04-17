@@ -264,3 +264,28 @@ In order to handle scenarios where code collides with one another, you can use a
 ```js
 window.libraryName = window.libraryName || "Lib 2";
 ```
+
+# Objects and Functions
+
+### Objects and the Dot
+
+- while in other langauges, objects and functions are 2 distinct things to talk about, in JS, _they are very much related_
+- Object: Primitive "property", Object "property", Function "method"
+
+```js
+var person = new Object();
+person["firstname"] = "Tony"; // create name value pair in the person object
+person["lastname"] = "Alicea";
+
+var firstNameProperty = "firstname";
+
+console.log(person[firstNameProperty]); // Tony
+console.log(person.firstname); // Tony
+console.log(person.lastname); // Tony
+console.log(person.firstNameProperty); // Tony
+
+// preferred method is using the dot operator
+person.address = new Object();
+person.address.street = "111 Main St.";
+person.address.city = "New York";
+```
