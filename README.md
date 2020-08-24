@@ -331,3 +331,23 @@ var spanish = {};
 english.greet = 'Hello!';
 spanish.greet = 'Hola!';
 ```
+
+### JSON and Object Literals
+
+object literal (attributes could also be strings, but they don't have to)
+
+```
+var objectLiteral = {
+  firstname: 'Mary',
+  isAProgrammer: true
+}
+```
+
+JSON -- attributes _must be strings_. can be thought of as a subset of object literal.
+
+```
+  "firstname": "Mary",
+  "isAProgrammer": true
+```
+
+JavaScript has `JSON.stringify` and `JSON.parse` to convert between the two (string vs object)
