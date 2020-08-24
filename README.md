@@ -310,3 +310,24 @@ greet(Tony);
 // wherever you want, you can create objects on the fly
 greet({ firstname: "Mary", lastname: "Doe" }); // in JS you can make an object as an argument and pass it to a parameter
 ```
+
+### Faking Namespaces
+
+**namespace**: a container for variables and functions -- typically to keep variables and functions with the same name separate
+
+Instead of:
+
+```
+var greet = 'Hello!';
+var greet = 'Hola!';
+```
+
+In js, you deal with collisions by using objects:
+
+```
+var english = {};
+var spanish = {};
+
+english.greet = 'Hello!';
+spanish.greet = 'Hola!';
+```
