@@ -351,3 +351,143 @@ JSON -- attributes _must be strings_. can be thought of as a subset of object li
 ```
 
 JavaScript has `JSON.stringify` and `JSON.parse` to convert between the two (string vs object)
+
+### Functions are Objects
+
+**first class functions**: everything you can do with other types you can do with functions; assign them to variables, pass them around, create them on the fly
+
+function = a special type of object
+
+- since it is an object, we can attach a primitive, object, and a function to a function
+- NAME = optional... can be anonymous
+- CODE = the code we write gets placed into a special property called the code property of the object. this is "invocable" ()... "run this code, of this function"
+
+we need to think of a function AS AN OBJECT with additional properties!
+
+### Function Statements and Function Expressions
+
+**expression**: a unit of code that results in a value
+
+```js
+a = 3;
+// 3
+
+1 + 2;
+// 3
+```
+
+`if` is a statement... it doesn't return anything
+
+`expression` results in a value... it returns a value
+
+In JS, there are function statements and function expressions.
+
+```js
+greet();
+
+// FUNCTION STATEMENT
+// When this is ran during the execution phase, JS recognizes it, but doesn't actually do anything.
+funtion greet() {
+  console.log('hi');
+}
+
+// FUNCTION EXPRESSION
+// When this is ran during the execution phase, an object is CREATED, which results in a value -- the value being the function object.
+greetAnonymous = function() {
+  console.log('hi');
+}
+
+anonymousGreet();
+```
+
+Remember, with the concept of hoisting, that if we shift the order of anonymousGreet(), we will get undefined (variables are set to undefined during the execution phase).
+
+```js
+greet();
+
+
+funtion greet() {
+  console.log('hi');
+}
+
+anonymousGreet();
+// we will get an error here: undefined is not a function
+// remember, greetAnonymous is set to `undefined` during the execution phase
+// here, we are trying to invoke greetAnonymous, but it is still the `undefined` primitive type, but it isn't a function YET!
+// function expressions are not hoisted!!!
+
+greetAnonymous = function() {
+  console.log('hi');
+}
+```
+
+You can pass a function expression as a parameter to a function.
+
+```js
+function log(a) {
+  console.log(a);
+}
+
+log({
+  greeting: "hi",
+});
+
+// remember, a function is an object. we can create functions on the fly. they work like object literals!
+log(function () {
+  console.log("hello");
+});
+```
+
+We can take the above block even further. What happens if we want to invoke the function, instead of just printing out the function?
+
+```js
+function log(a) {
+  a();
+}
+
+log(function () {
+  console.log("hello");
+});
+```
+
+These concepts introduce a new class of programming: functional programming!
+
+### By Value vs By Reference
+
+In JS, Primitives are copied by value and Objects (including functions) are copied by reference.
+
+```js
+// by value (primitives)
+var a = 3;
+var b;
+
+b = a;
+a = 2;
+
+console.log(a); // 2
+console.log(b); // 3
+
+// by reference (all objects (including functions))
+var c = { greeting: 'hi' };
+var d;
+
+d = c;
+c.greeting = 'hello'; // mutate
+
+console.log(c); // Object { greeting: 'hello' }
+console.log(d); // Object { greeting: 'hello' }
+
+// by reference (even as parameters)
+function changeGreeting(obj) {
+  obj.greeting = 'Hola'; // mutate
+}
+
+changeGreeting(d);
+console.log(c); // Object { greeting: 'Hola' }
+console.log(d); // Object { greeting: 'Hola' }
+
+// equals operator sets up new memory space (new address)
+c = { greeting: 'howdy' };
+console.log(c); // Object { greeting: 'howdy' }
+console.log(d); // Object { greeting: 'Hola' }
+```
