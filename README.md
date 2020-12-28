@@ -534,7 +534,7 @@ However, other internal functions refer to `this` as the global object. You can 
 var c = {
   name: 'The c object',
   log: function() {
-    var self = this; // set by reference - this pattern is used often
+    var self = this; // set by reference, pointing to the whole object `c` - this pattern is used often
 
     self.name = 'Updated c object';
     console.log(self);
@@ -549,4 +549,29 @@ var c = {
 }
 
 c.log();
+```
+
+### Arrays - Collections of Anything
+
+```js
+var arr = [1,2,3];
+
+// since js is dynamically typed, you can mix and match data types in an array
+var arr = [
+  1,
+  false,
+  {
+      name: 'Tony',
+      address: '111 Main St.'
+  },
+  function(name) {
+    var greeting = 'Hello ';
+    console.log(greeting + name);
+  },
+  "hello"
+]
+
+console.log(arr); // [1, false, Object, function, "hello"]
+
+arr[3](arr[2].name); // 'Hello Tony'
 ```
