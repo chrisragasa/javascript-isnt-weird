@@ -575,3 +575,75 @@ console.log(arr); // [1, false, Object, function, "hello"]
 
 arr[3](arr[2].name); // 'Hello Tony'
 ```
+
+### 'arguments' and spread
+
+Holds all the values that you pass to a function.
+
+```js
+function greet(firstname, lastname, lanugage) {
+  console.log(firstname);
+  console.log(lastname);
+  console.log(language);
+}
+
+greet(); // is js, you can run this function even though you aren't passing any arguments
+// hoisting sets each of these values equal to Undefined
+
+greet('John'); // prints John Undefined Undefined
+// js assumes since only 1 argument passed, it is the first parameter (firstname)
+```
+
+You can set default values for parameters like this code example below:
+
+```js
+function greet(language) {
+
+  language = language || 'es';
+
+  console.log(language)
+}
+
+greet(); // es
+greet('eg'); // eg
+```
+
+There is a keyword `arguments` that is a list of all the values of the parameters passed.
+```js
+function greet(firstname, lastname, lanugage) {
+
+  if (arguments.length === 0) {
+    console.log('Missing parameters');
+    return;
+  }
+
+  console.log(firstname);
+  console.log(lastname);
+  console.log(language);
+  console.log(arguments); // prints a list of the arguments passed
+
+}
+
+
+greet();
+```
+
+You can use the concept of a spread `...` parameter, where any additional arguments will get wrapped up into a list.
+```js
+function greet(firstname, lastname, lanugage, ...other) {
+
+  if (arguments.length === 0) {
+    console.log('Missing parameters');
+    return;
+  }
+
+  console.log(firstname);
+  console.log(lastname);
+  console.log(language);
+  console.log(arguments); // prints a list of the arguments passed
+
+}
+
+
+greet('john','doe','en', '1', '2', '3');
+```
