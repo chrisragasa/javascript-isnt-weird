@@ -674,3 +674,29 @@ function greetSpanish(firstname, lastname) {
 greetEnglish('John', 'Doe');
 greetSpanish('John', 'Doe');
 ```
+
+### DANGEROUS: Automatic Semicolon Insertion
+Semicolons are optional in Javascript. Therefore, in places where the syntax parser expects a semicolon, the js engine will automatically insert a semicolon.
+
+Remember to always put your own semicolons! Forgetting to do so can introduce huge problems.
+
+```js
+function getPerson() {
+  return 
+  {
+    firstname: 'Tony'
+  }
+}
+
+console.log(getPerson()); // undefined
+// the js engine automatically inserted a semicolon after the `return`
+
+
+// instead, do the following
+function getPerson() {
+  return {
+    firstname: 'Tony'
+  }
+}
+
+```
