@@ -491,3 +491,62 @@ c = { greeting: 'howdy' };
 console.log(c); // Object { greeting: 'howdy' }
 console.log(d); // Object { greeting: 'Hola' }
 ```
+
+### Objects, Functions, and 'this'
+
+```js
+console.log(this); // Window
+
+```
+
+If simply invoking a function, `this` is going to refer to the global object.
+```js
+function a() {
+  console.log(this);
+}
+
+var b = function() {
+  console.log(this);
+}
+
+a(); // Window object
+b(); // Window object
+```
+
+You can mutate the object that contains you by using the `this` keyword.
+```js
+var c = {
+  name: 'The c object',
+  log: function() {
+    this.name = 'Updated c object';
+    console.log(this);
+  }
+}
+
+c.log() // Object c
+
+// since log was defined inside the object c, `this` refers to the c object, instead of the global Window object
+```
+
+Whenever a function is a method of an object, the `this` keyword refers to the object. 
+However, other internal functions refer to `this` as the global object. You can use the concept of setting a variable = `self`, to avoid this problem. See below:
+```js
+var c = {
+  name: 'The c object',
+  log: function() {
+    var self = this; // set by reference - this pattern is used often
+
+    self.name = 'Updated c object';
+    console.log(self);
+
+    var setname = function(newname) {
+      self.name = newname;
+    }
+
+    setname('Updated again! The c object');
+    console.log(self);
+  }
+}
+
+c.log();
+```
