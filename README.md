@@ -700,3 +700,28 @@ function getPerson() {
 }
 
 ```
+
+### Framework: Whitespace
+
+JS syntax parser is very liberal with whitespace. See below:
+
+```js
+
+var
+  // first name of the person
+  firstname,
+
+  // last name of the person
+  lastname,
+
+  // the language
+  language;
+
+var person = {
+  // the first name
+  firstname: 'John',
+
+  // the last name
+  lastname: 'Doe
+}
+```
