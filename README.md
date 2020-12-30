@@ -773,3 +773,34 @@ var firstname = 'Chris';
 // i.e., (function...blah blah...)(firstname)
 
 ```
+
+### Framework: IIFE and Safe Code
+
+- IIFEs are used in other libraries to make sure that collisions do not happen
+- remember that () creates a new execution context
+- it's very common to see the source code of other libraries to immediately start off with a parenthesis to make sure that the code is 'safe' and runs without collisions of the global execution context
+
+```js
+// assume this is defined in file greeting.js
+var greeting = 'Hola'; // this greeting variable belongs to the global execution context
+
+// assume this is defined in file app.js
+(function(name) {
+  var greeting = 'Hello'; // this greeting variable belongs to the execution context of the anonymous function
+  console.log(greeting + ' ' + name);
+}('Chris'));
+```
+
+But what if we wanted to modify the global execution context? You can utilize parameters and arguments by reference to the global execution context.
+
+```js
+// assume this is defined in file greeting.js
+var greeting = 'Hola'; // this greeting variable belongs to the global execution context
+
+// assume this is defined in file app.js
+(function(global, name) {
+  var greeting = 'Hello';
+  global.greeting = 'Hello'; // this would override the greeting = 'Hola' statement on the global context
+  console.log(greeting + ' ' + name);
+}(window, 'Chris')); // `window` is reference to global object
+```
