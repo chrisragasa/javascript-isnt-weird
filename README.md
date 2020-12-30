@@ -725,3 +725,51 @@ var person = {
   lastname: 'Doe
 }
 ```
+
+### Immediately Invoked Function Expressions (IIFE)S
+
+```js
+// function statement
+function greet(name) {
+  console.log('Hello ' + name);
+}
+greet('Chris');
+
+// function expression
+var greetingFunc = function(name) {
+  console.log('Hello ' + name);
+}
+greetingFunc('Chris');
+
+// using an Immediately Invoked Function Expression (IIFE)
+var greeting = function(name) {
+  return 'Hello ' + name;
+}('Chris'); // function is invoked immediately here and the value returned is set as `greeting` variable
+console.log(greeting); // prints 'Hello Chris'
+
+// likewise, the following expressions are valid JS expressions
+// nothing will happen, the parser will just read the following
+3;
+'test';
+{
+  name: 'John'
+};
+
+// however, if you want to write a function, use parenthesis... otherwise, you'll get an error
+(function(name) {
+  return 'Hello ' + name;
+});
+
+// this is a classic example of an IIFE... wonderful tool as a js developer!
+// this kind of style can be seen throughout many different js frameworks
+var firstname = 'Chris';
+
+(function(name) {
+
+  var greeting = 'Hello ';
+  console.log(greeting + name);
+
+}(firstname)); // this can also be invoked outside the parenthesis, see below
+// i.e., (function...blah blah...)(firstname)
+
+```
