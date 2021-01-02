@@ -804,3 +804,22 @@ var greeting = 'Hola'; // this greeting variable belongs to the global execution
   console.log(greeting + ' ' + name);
 }(window, 'Chris')); // `window` is reference to global object
 ```
+
+### Understanding Closures
+
+```js
+
+function greet(whattosay) {
+  return function(name) {
+    console.log(whattosay + ' ' + name);
+  }
+}
+
+var sayHi = greet('Hi'); // this returns the anonymous function
+sayHi('Chris'); // sayHi still has access to the `whattosay` variable defined in the line above
+
+```
+- The phenomenon shown above is an example of js closures. Even though the execution context of the `greet()` function has popped off the execution stack, the `sayHi` execution context still has a reference to the memory/variables of it's outer lexical environment
+- In other words, even though the execution context of `greet()` has finished, any functions created inside of `greet()` when it was called still have access to `greet()`'s memory
+- `greet()` is gone, but what's in memory for that execution context isn't... the js engine makes sure that your function can look down the scope chain and find what it's looking for
+- we can imagine that the `sayHi` execution context has **closed in** its outer variables -- variables it would normally have access to, even though the execution context is gone
